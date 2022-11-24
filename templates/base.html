@@ -8,7 +8,6 @@
     class="panel-radios"
     type="radio"
     name="tab-radios"
-    checked
   />
   <input
     id="panel-2-ctrl"
@@ -44,22 +43,22 @@
     <!-- MENU TOGGLE -->
     <label id="open-nav-label" for="nav-ctrl"></label>
     <li id="li-for-panel-1">
-      <label class="panel-label" for="panel-1-ctrl">Main</label>
+      <label class="panel-label" for="panel-1-ctrl"><a href="/">Main</a></label>
     </li>
     <!--INLINE-BLOCK FIX
  -->
     <li id="li-for-panel-2">
-      <label class="panel-label" for="panel-2-ctrl">Confirm</label>
+      <a href="/confirm"><label class="panel-label" for="panel-2-ctrl">Confirm</label></a>
     </li>
     <!--INLINE-BLOCK FIX
  -->
     <li id="li-for-panel-3">
-      <label class="panel-label" for="panel-3-ctrl">My page</label>
+      <label class="panel-label" for="panel-3-ctrl"><a href="/mypage">My page</a></label>
     </li>
     <!--INLINE-BLOCK FIX
  -->
     <li id="li-for-panel-4">
-      <label class="panel-label" for="panel-4-ctrl">Community</label>
+      <label class="panel-label" for="panel-4-ctrl"><a href="/community">Community</a></label>
     </li>
     <!--INLINE-BLOCK FIX
  -->
@@ -67,22 +66,24 @@
   </ul>
 </head>
 <!-- THE PANELS -->
-<body>
+<body style="overflow-x:hidden">
   <article id="panels">
     <div class="container">
       <section id="panel-1">
-        <main></main>
+        <main>{% block contents_main %}{% endblock %}</main>
       </section>
       <section id="panel-2">
-        <main>{% block contents %}{% endblock %}</main>
+        <main style="overflow-x:hidden">{% block contents_confirm %}{% endblock %}</main>
       </section>
       <section id="panel-3">
         <main></main>
       </section>
       <section id="panel-4">
-        <main></main>
+        <main>{% block contents_community %}{% endblock %}</main>
       </section>
     </div>
   </article>
+
+  <script src="./base.js"></script>
 </body>
 </html>
