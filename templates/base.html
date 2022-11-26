@@ -22,12 +22,6 @@
     name="tab-radios"
   />
   <input
-    id="panel-4-ctrl"
-    class="panel-radios"
-    type="radio"
-    name="tab-radios"
-  />
-  <input
     id="nav-ctrl"
     class="panel-radios"
     type="checkbox"
@@ -57,11 +51,6 @@
     </li>
     <!--INLINE-BLOCK FIX
  -->
-    <li id="li-for-panel-4">
-      <label class="panel-label" for="panel-4-ctrl"><a href="/community">Community</a></label>
-    </li>
-    <!--INLINE-BLOCK FIX
- -->
     <label id="close-nav-label" for="nav-ctrl">Close</label>
   </ul>
 </head>
@@ -76,10 +65,7 @@
         <main style="overflow-x:hidden">{% block contents_confirm %}{% endblock %}</main>
       </section>
       <section id="panel-3">
-        <main></main>
-      </section>
-      <section id="panel-4">
-        <main>{% block contents_community %}{% endblock %}</main>
+        <main>{% block contents_mypage %}{% endblock %}</main>
       </section>
     </div>
   </article>
