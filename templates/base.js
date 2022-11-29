@@ -1,14 +1,16 @@
-var tabLink = $(".panel-label li"),
-  tabContent = $("#tabs-list > div");
+// 탭 컨텐츠 숨기기
+$(".tab_content").hide();
 
-tabLink.click(function (e) {
-  e.preventDefault();
-  var targetIdx = $(this).index();
-
-  activateTab(targetIdx);
+// 첫번째 탭콘텐츠 보이기
+$(".tab_container").each(function () {
+  $(this).children(".tabs li:first").addClass("active"); //Activate first tab
+  $(this).children(".tab_content").first().show();
 });
-
-function activateTab(idx) {
-  tabContent.hide();
-  tabContent.eq(idx).show();
-}
+//탭메뉴 클릭 이벤트
+$(".tabs li a").click(function () {
+  $(this).parent().siblings("li").removeClass("active");
+  $(this).parent().addClass("active");
+  $(this).parent().parent().parent().parent().find(".tab_content").hide();
+  var activeTab = $(this).attr("rel");
+  $("#" + activeTab).fadeIn();
+});
