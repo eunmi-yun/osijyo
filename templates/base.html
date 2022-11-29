@@ -35,14 +35,14 @@
   <!-- TABS LIST -->
   <ul id="tabs-list">
     <!-- <nav id="nav">
-      <a class="panel-1" href="/">Main</a>
+      <a class="panel-1" href="/">Info</a>
       <a class="panel-2" href="/confirm">Confirm</a>
       <a class="panel-3" href="/myPage">My page</a>
     </nav> -->
     <!-- MENU TOGGLE -->
     <label id="open-nav-label" for="nav-ctrl"></label>
     <li id="li-for-panel-1">
-      <label class="panel-label" for="panel-1-ctrl"><a href="/">Main</a></label>
+      <label class="panel-label" for="panel-1-ctrl"><a href="/">Info</a></label>
     </li>
     <!--INLINE-BLOCK FIX
  -->
@@ -61,10 +61,10 @@
 </head>
 <!-- THE PANELS -->
 <body style="overflow-x:hidden">
-  <article id="panels">
+  <!-- <article id="panels"> -->
     <div class="container">
       <section id="panel-1">
-        <main>{% block contents_main %}{% endblock %}</main>
+        <main>{% block contents_info %}{% endblock %}</main>
       </section>
       <section id="panel-2">
         <main style="overflow-x:hidden">{% block contents_confirm %}{% endblock %}</main>
@@ -73,7 +73,7 @@
         <main>{% block contents_myPage %}{% endblock %}</main>
       </section>
     </div>
-  </article>
+  <!-- </article> -->
 
   <script src="./base.js"></script>
 </body>

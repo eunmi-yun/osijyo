@@ -1,6 +1,6 @@
-{% extends 'base.html' %} {% block contents_main %} {% load static %}
+{% extends 'base.html' %} {% block contents_info %} {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'main/main.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'info/info.css' %}" />
 
 <table>
   <tr>
@@ -23,14 +23,14 @@
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
       <!-- partial -->
-      <script src="{% static 'main/weather.js' %}"></script>
+      <script src="{% static 'info/weather.js' %}"></script>
     </td>
   </tr>
 
   <tr>
     <td>
       <img
-        src="{% static 'main/farmer3.jpg' %}"
+        src="{% static 'info/farmer3.jpg' %}"
         width="200"
         height="350"
         alt="농부 캐릭터"
