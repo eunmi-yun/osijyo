@@ -1,61 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 {% load static %}
-<html>
-  <head>
-    <title>Osijyo</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link rel="stylesheet" href="../static/assets/css/main.css" />
-  </head>
-  <body class="homepage is-preload">
-    <div id="page-wrapper">
-      <!-- Header -->
-      <header id="header">
-        <div class="logo container">
-          <div>
-            <h1><a href="/" id="logo">Osijyo</a></h1>
-          </div>
-        </div>
-      </header>
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+<!-- TAB CONTROLLERS -->
+<head>
+  <!-- <input
+    id="panel-1-ctrl"
+    class="panel-radios"
+    type="radio"
+    name="tab-radios"
+  />
+  <input
+    id="panel-2-ctrl"
+    class="panel-radios"
+    type="radio"
+    name="tab-radios"
+  />
+  <input
+    id="panel-3-ctrl"
+    class="panel-radios"
+    type="radio"
+    name="tab-radios"
+  />
+  <input
+    id="nav-ctrl"
+    class="panel-radios"
+    type="checkbox"
+    name="nav-checkbox"
+  /> -->
 
-      <!-- Nav -->
-      <nav id="nav">
-        <ul>
-          <li class="current"><a href="/">Home</a></li>
-          <li><a href="/info">Info</a></li>
-          <li><a href="/confirm">Confirm</a></li>
-          <li><a href="/myPage">My page</a></li>
-        </ul>
-      </nav>
+  <header id="introduction">
+    <h1>Osijyo</h1>
+  </header>
 
-      <!-- Main -->
-      <section id="main">
-        <div class="container">
-          <div class="row gtr-200">
-            <div class="col-12">
-              <!-- Features -->
-              <section class="box features">
-                <article>{% block contents_home %}{% endblock %}</article>
-                <article>{% block contents_info %}{% endblock %}</article>
-                <article>{% block contents_confirm %}{% endblock %}</article>
-                <article>{% block contents_myPage %}{% endblock %}</article>
-              </section>
-            </div>
-          </div>
-        </div>
+  <!-- TABS LIST -->
+  <!-- <ul id="tabs-list"> -->
+    <nav id="nav">
+      <a class="panel-1" href="/">Main</a>
+      <a class="panel-2" href="/confirm">Confirm</a>
+      <a class="panel-3" href="/mypage">My page</a>
+    </nav>
+    <!-- MENU TOGGLE -->
+    <!-- <label id="open-nav-label" for="nav-ctrl"></label>
+    <li id="li-for-panel-1">
+      <label class="panel-label" for="panel-1-ctrl"><a href="/">Main</a></label>
+    </li> -->
+    <!--INLINE-BLOCK FIX
+ -->
+    <!-- <li id="li-for-panel-2">
+      <label class="panel-label" for="panel-2-ctrl"><a href="/confirm">Confirm</a></label>
+    </li> -->
+    <!--INLINE-BLOCK FIX
+ -->
+    <!-- <li id="li-for-panel-3">
+      <label class="panel-label" for="panel-3-ctrl"><a href="/mypage">My page</a></label>
+    </li> -->
+    <!--INLINE-BLOCK FIX
+ -->
+    <!-- <label id="close-nav-label" for="nav-ctrl">Close</label> -->
+  <!-- </ul> -->
+</head>
+<!-- THE PANELS -->
+<body style="overflow-x:hidden">
+  <article id="panels">
+    <div class="container">
+      <section id="panel-1">
+        <main>{% block contents_main %}{% endblock %}</main>
+      </section>
+      <section id="panel-2">
+        <main style="overflow-x:hidden">{% block contents_confirm %}{% endblock %}</main>
+      </section>
+      <section id="panel-3">
+        <main>{% block contents_ %}{% endblock %}</main>
       </section>
     </div>
+  </article>
 
-    <!-- Scripts -->
-    <script src="../static/assets/js/jquery.min.js"></script>
-    <script src="../static/assets/js/jquery.dropotron.min.js"></script>
-    <script src="../static/assets/js/jquery.scrolly.min.js"></script>
-    <script src="../static/assets/js/browser.min.js"></script>
-    <script src="../static/assets/js/breakpoints.min.js"></script>
-    <script src="../static/assets/js/util.js"></script>
-    <script src="../static/assets/js/main.js"></script>
-  </body>
+  <script src="./base.js"></script>
+</body>
 </html>
