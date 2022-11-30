@@ -8,7 +8,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="static/assets/css/main.css" />
+    <link rel="stylesheet" href="../static/assets/css/main.css" />
   </head>
   <body class="homepage is-preload">
     <div id="page-wrapper">
@@ -38,7 +38,10 @@
             <div class="col-12">
               <!-- Features -->
               <section class="box features">
+                <article>{% block contents_home %}{% endblock %}</article>
                 <article>{% block contents_info %}{% endblock %}</article>
+                <article>{% block contents_confirm %}{% endblock %}</article>
+                <article>{% block contents_myPage %}{% endblock %}</article>
               </section>
             </div>
           </div>
@@ -47,12 +50,12 @@
     </div>
 
     <!-- Scripts -->
-    <script src="static/assets/js/jquery.min.js"></script>
-    <script src="static/assets/js/jquery.dropotron.min.js"></script>
-    <script src="static/assets/js/jquery.scrolly.min.js"></script>
-    <script src="static/assets/js/browser.min.js"></script>
-    <script src="static/assets/js/breakpoints.min.js"></script>
-    <script src="static/assets/js/util.js"></script>
-    <script src="static/assets/js/main.js"></script>
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/assets/js/jquery.dropotron.min.js"></script>
+    <script src="../static/assets/js/jquery.scrolly.min.js"></script>
+    <script src="../static/assets/js/browser.min.js"></script>
+    <script src="../static/assets/js/breakpoints.min.js"></script>
+    <script src="../static/assets/js/util.js"></script>
+    <script src="../static/assets/js/main.js"></script>
   </body>
 </html>
