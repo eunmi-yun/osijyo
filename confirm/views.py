@@ -47,8 +47,15 @@ def imageCreate(request):
         # 인덱스 번호를 질병명으로 바꿈.
         lables = ['세균점무늬병','겹무늬병','정상','잎곰팡이병','흰무늬병','황화 잎말림 바이러스']
         result = lables[idx]
+        url_lables=['https://terms.naver.com/entry.naver?docId=800752&cid=42555&categoryId=42557',
+        'https://terms.naver.com/entry.naver?docId=800536&cid=42555&categoryId=42557',
+        '','https://terms.naver.com/entry.naver?docId=800694&cid=42555&categoryId=42557',
+        'https://terms.naver.com/entry.naver?docId=800803&cid=42555&categoryId=42557',
+        'https://blog.naver.com/greenermarket/222926038480'
+        ]
+        url_result=url_lables[idx]
 
-        return render(request, 'confirm/result.html', {'result':result})
+        return render(request, 'confirm/result.html', {'result':result,'url_result':url_result})
   
 
 # def imageCreate(request):
