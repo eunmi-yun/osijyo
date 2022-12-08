@@ -29,7 +29,7 @@ a:active {
   font-weight: bolder;
   position: relative;
   top: -1;
-  left: -150px;
+  left: -180px;
   width: 100vw;
   height: 10vh;
 }
@@ -37,13 +37,13 @@ a:active {
 .disease_cure {
   position: relative;
   top: 100px;
-  left: -150px;
+  left: -10px;
 }
 
 .btn {
   position: relative;
   top: 100px;
-  left: -150px;
+  left: -10px;
 }
 
 .btn_yolo {
