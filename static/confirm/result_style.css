@@ -1,7 +1,8 @@
 #activity {
-  display: table-cell;
+  /* display: table-cell ; */
   text-align: center;
   vertical-align: middle;
+  padding: 50px 0 0 40px;
 }
 
 #activity:before {
@@ -43,4 +44,10 @@ a:active {
   position: relative;
   top: 100px;
   left: -150px;
+}
+
+.btn_yolo {
+  position: relative;
+  top: 100px;
+  left: -10px;
 }
