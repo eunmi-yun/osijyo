@@ -2,3 +2,5 @@
 *.JPG
 *.h5
 *.pyc~Stashed changes
+*.cfg
+*.weights
