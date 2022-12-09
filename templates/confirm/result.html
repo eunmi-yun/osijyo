@@ -1,13 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %} {% block contents_result_CNN %} {% load static %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'confirm/result_style.css' %}"
+/>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8" />
+  <title>Title</title>
 </head>
-<body>
-<h1>질병 분석 결과</h1>
-<h2>"{{result}}"</h2>
-<a href={{url_result}}> 질병 대처법 보러가기</a>
-
+<body style="overflow-x: hidden">
+  <div id="activity">
+    <h2 class="result">"{{result}}"</h2>
+    <button type="submit" class="disease_cure">
+      <a href="{{url_result}}" target="”_blank”"> 질병 대처법 보러가기</a>
+    </button>
+    <button type="submit" class="btn">
+      <a href="/confirm">다시 확인</a>
+    </button>
+  </div>
 </body>
-</html>
+{% endblock %}

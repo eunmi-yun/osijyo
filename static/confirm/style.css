@@ -61,3 +61,8 @@
   border-radius: 0;
   margin-bottom: 0;
 }
+
+.warning {
+  color: #cb0505;
+  font-weight: bold;
+}

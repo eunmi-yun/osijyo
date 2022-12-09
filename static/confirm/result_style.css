@@ -1,0 +1,46 @@
+#activity {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  #activity:before {
+    content: "질병 분석 결과";
+    position: absolute;
+    top: -1;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    background: rgba(10, 10, 10, 10, 10);
+  }
+  
+  #result {
+    text-transform: uppercase;
+  }
+  a:link,
+  a:hover,
+  a:visited,
+  a:active {
+    text-decoration: bold;
+  }
+  .result {
+    font-size: 5.75em;
+    font-weight: bolder;
+    position: relative;
+    top: -1;
+    left: -150px;
+    width: 100vw;
+    height: 10vh;
+  }
+  
+  .disease_cure {
+    position: relative;
+    top: 100px;
+    left: -150px;
+  }
+  
+  .btn {
+    position: relative;
+    top: 100px;
+    left: -150px;
+  }

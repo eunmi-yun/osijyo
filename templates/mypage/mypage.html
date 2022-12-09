@@ -17,131 +17,32 @@
       <th>상태</th>
     </tr>
   </thead>
-  <tr>
-    <td>1</td>
-    <td>
-      <img
-        src="{% static 'myPage/tomato1.jpg' %}"
-        alt="tomato1"
-        id="tomatoimg"
-      />
+  {% for history in historys %}
+  <tr>  
+    <td>{{history.history_id}}</td> 
+    <td>  
+          <!-- {% if history.history_id == 2 %}
+          <img src="{% static 'myPage/tomato2.jpg' %}" id="tomatoimg">
+          {% elif history.history_id == 3 %}
+          <img src="{% static 'myPage/tomato3.jpg' %}" id="tomatoimg">
+          {% elif history.history_id == 4 %}
+          <img src="{% static 'myPage/tomato4.jpg' %}" id="tomatoimg">
+          {% elif history.history_id == 5 %}
+          <img src="{% static 'myPage/tomato5.jpg' %}" id="tomatoimg">
+          {% else %}
+          <img src="{% static 'myPage/tomato1.jpg' %}" id="tomatoimg"> 
+          {% endif %} -->
     </td>
-    <td>2022/11/23</td>
-    <td>겹무늬병</td>
-    <td>치료제</td>
-    <td id="sel">
-      <select name="tomatoSet" id="tomatoC">
-        {% comment %}
-        <option value="">선택하세요</option>
-        {% endcomment %}
-        <option value="1">건강</option>
-        {% comment %}
-        <option value="2">완치</option>
-        <option value="3">치료중</option>
-        {% endcomment %}
-      </select>
-    </td>
+    <td>{{history.reg_date|date:'Y-m-d'}}</td>
+    <td>{{history.disease_name}}</td>
+    <td>{{history.disease_cure}}</td>    
+     <td id = "sel"><select name="tomatoSet" id="tomatoC">
+        <option value= {{history.status_code.status_code}}>{{history.status_code.status_name}}</option>
+        </select></td>
+    </td>  
   </tr>
+  {% endfor %} 
 
-  <tr>
-    <td>2</td>
-    <td>
-      <img
-        src="{% static 'myPage/tomato1.jpg' %}"
-        alt="tomato1"
-        id="tomatoimg"
-      />
-    </td>
-    <td>2022/11/23</td>
-    <td>잎마름역병</td>
-    <td>수분추가</td>
-    <td id="sel">
-      <select name="tomatoSet" id="tomatoC">
-        {% comment %}
-        <option value="">선택하세요</option>
-        <option value="1">건강</option>
-        <option value="2">완치</option>
-        {% endcomment %}
-        <option value="3">치료중</option>
-      </select>
-    </td>
-  </tr>
-
-  <tr>
-    <td>3</td>
-    <td>
-      <img
-        src="{% static 'myPage/tomato1.jpg' %}"
-        alt="tomato1"
-        id="tomatoimg"
-      />
-    </td>
-    <td>2022/11/23</td>
-    <td>모자이크병</td>
-    <td>치료제</td>
-    <td id="sel">
-      <select name="tomatoSet" id="tomatoC">
-        {% comment %}
-        <option value="">선택하세요</option>
-        {% endcomment %}
-        <option value="1">건강</option>
-        {% comment %}
-        <option value="2">완치</option>
-        <option value="3">치료중</option>
-        {% endcomment %}
-      </select>
-    </td>
-  </tr>
-
-  <tr>
-    <td>4</td>
-    <td>
-      <img
-        src="{% static 'myPage/tomato1.jpg' %}"
-        alt="tomato1"
-        id="tomatoimg"
-      />
-    </td>
-    <td>2022/11/23</td>
-    <td>잎곰팡이병</td>
-    <td>수분제거</td>
-    <td id="sel">
-      <select name="tomatoSet" id="tomatoC">
-        {% comment %}
-        <option value="">선택하세요</option>
-        <option value="1">건강</option>
-        <option value="2">완치</option>
-        {% endcomment %}
-        <option value="3">치료중</option>
-      </select>
-    </td>
-  </tr>
-
-  <tr>
-    <td>5</td>
-    <td>
-      <img
-        src="{% static 'myPage/tomato1.jpg' %}"
-        alt="tomato1"
-        id="tomatoimg"
-      />
-    </td>
-    <td>2022/11/23</td>
-    <td>흰무늬병</td>
-    <td>통풍</td>
-    <td id="sel">
-      <select name="tomatoSet" id="tomatoC">
-        {% comment %}
-        <option value="">선택하세요</option>
-        <option value="1">건강</option>
-        {% endcomment %}
-        <option value="2">완치</option>
-        {% comment %}
-        <option value="3">치료중</option>
-        {% endcomment %}
-      </select>
-    </td>
-  </tr>
 </table>
 <button class="tsb" type="button">상태 수정</button>
 {% endblock %}

@@ -4,7 +4,7 @@
   type="text/css"
   href="{% static 'confirm/style.css' %}"
 />
-<section>
+<body style="overflow-y: hidden">
   <form
     action="/confirm/imageCreate"
     method="POST"
@@ -30,26 +30,26 @@
               </div>
               <input type="file" name="img_upload" class="dropzone" />
             </div>
+            {% if messages %}
+            <div class="warning">
+              {% for message in messages %} {{ message.tags }}
+              {{message.messages}} {% endfor %}
+            </div>
+            {% endif %}
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <button type="submit" class="btn btn-primary pull-right">
-            간편 확인
-          </button>
+          <button type="submit" class="btn">간편 확인</button>
         </div>
         <div class="col-md-12">
-          <button type="submit" class="btn btn-primary pull-right">
-            상세 확인
-          </button>
+          <button type="submit" class="btn">상세 확인</button>
         </div>
       </div>
     </div>
   </form>
-</section>
-
-{{result}}
+</body>
 
 <!-- partial -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
