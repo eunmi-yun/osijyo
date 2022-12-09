@@ -42,8 +42,7 @@ INSTALLED_APPS = [
     'home',
     'info',
     'confirm',
-    'history',
-    'login',
+    'log',
 ]
 
 MIDDLEWARE = [

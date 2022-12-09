@@ -1,4 +1,13 @@
 {% extends 'base.html' %} {% block contents_info %} {% load static %}
+<!-- Nav -->
+<nav id="nav">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li class="current"><a href="/info">Info</a></li>
+    <li><a href="/confirm">Confirm</a></li>
+    <li><a href="/log">History</a></li>
+  </ul>
+</nav>
 
 <link rel="stylesheet" type="text/css" href="{% static 'info/info.css' %}" />
 
