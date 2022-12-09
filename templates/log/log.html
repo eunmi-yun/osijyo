@@ -1,9 +1,16 @@
 {% extends 'base.html' %} {% block contents_myPage %} {% load static %}
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'myPage/myPage.css' %}"
-/>
+<!-- Nav -->
+<nav id="nav">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/info">Info</a></li>
+    <li><a href="/confirm">Confirm</a></li>
+    <li class="current"><a href="/log">History</a></li>
+  </ul>
+</nav>
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'log/log.css' %}"/>
 
 <h1 class="tomatoTitle">나의 토마토 질병 정보</h1>
 <table class="tomatoTable">

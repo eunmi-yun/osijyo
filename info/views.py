@@ -6,7 +6,7 @@ from os.path import isfile
 from django.db import connection
 import numpy as np
 import platform
-import myPage.models
+import log.models
 from collections import defaultdict
 import os
 import seaborn as sns

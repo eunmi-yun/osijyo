@@ -1,11 +1,15 @@
 {% extends 'base.html' %} {% block contents_info %} {% load static %}
+<!-- Nav -->
+<nav id="nav">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li class="current"><a href="/info">Info</a></li>
+    <li><a href="/confirm">Confirm</a></li>
+    <li><a href="/log">History</a></li>
+  </ul>
+</nav>
 
 <link rel="stylesheet" href="{% static 'info/info.css' %}" />
-<div class="lb-widget">
-  <div id="lb-1" class="lb-weather">
-    <iframe src="https://forecast.io/embed/#lat=37.5266&lon=127.0403&name=Seoul, 서울&color=&font=&units=si"></iframe>
-  </div>
-</div>
 
 
 <form action="loadChart" method="post">
@@ -21,26 +25,30 @@
 
 
 <table border="1">
-  <tr>
-    <td></td>
-    <td><img src="{% static 'info/total.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
-    <td></td>
+  <tr style="text-align:center;">
+    <td colspan="2"><img src="{% static 'info/total.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
   </tr>
   <tr>
     <td><img src="{% static 'info/겹무늬병.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
     <td><img src="{% static 'info/세균점무늬병.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
-    <td><img src="{% static 'info/잎곰팡이병.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
   </tr>
   <tr>
     <td><img src="{% static 'info/잎마름역병.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
     <td><img src="{% static 'info/황화_잎말림_바이러스.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
-    <td> <img src="{% static 'info/흰무늬병.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
+  </tr>
+  <tr>
+    <td><img src="{% static 'info/잎곰팡이병.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
+    <td><img src="{% static 'info/흰무늬병.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
   </tr>
 </table>
 
 
 
-
+<div class="lb-widget">
+  <div id="lb-1" class="lb-weather">
+    <iframe src="https://forecast.io/embed/#lat=37.5266&lon=127.0403&name=Seoul, 서울&color=&font=&units=si"></iframe>
+  </div>
+</div>
 
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>

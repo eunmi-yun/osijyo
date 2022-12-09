@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block contents_result %} {% load static %}
+<nav id="nav">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/info">Info</a></li>
+    <li class="current"><a href="/confirm">Confirm</a></li>
+    <li><a href="/log">History</a></li>
+  </ul>
+</nav>
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'confirm/result_style.css' %}"
+/>
+<head>
+  <meta charset="UTF-8" />
+  <title>Title</title>
+</head>
+<body style="overflow-x: hidden">
+  <div class="row">
+    <div class="preview-zone hidden">
+      <h2>
+        <img
+          src="/media/yolo/result_img.jpg"
+          alt="사진을 불러오는데 실패했습니다."
+          width="450"
+          height="300"
+        />
+        <br />
+        "{{result}}"
+      </h2>
+      <button type="submit" class="btn_yolo">
+        <a href="/confirm">다시 확인</a>
+      </button>
+    </div>
+  </div>
+</body>
+{% endblock %}

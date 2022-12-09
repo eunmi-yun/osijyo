@@ -251,8 +251,8 @@ h4 {
 }
 
 a {
-  color: #006376;
-  text-decoration: underline;
+  color: #fff;
+  text-decoration: none;
 }
 
 a:hover {
@@ -802,9 +802,9 @@ header > p {
   }
 
   .row {
-    margin-top: -190px;
+    margin-top: -130px;
     margin-left: -50px;
-    padding-bottom: 200px;
+    padding-bottom: 120px;
   }
 
   .row > * {
@@ -842,7 +842,7 @@ header > p {
   }
 
   .row.gtr-200 > * {
-    padding: 100px 0 0 100px;
+    padding: 50px 0 0 100px;
   }
 
   .row.gtr-200.gtr-uniform {
@@ -1894,7 +1894,7 @@ button,
   color: #fff;
   border: 0;
   line-height: 1em;
-  border-radius: 8px;
+  border-radius: 80px;
   outline: 0;
   cursor: pointer;
   -moz-transition: background-color 0.2s ease-in-out;

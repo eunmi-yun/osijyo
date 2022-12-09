@@ -25,7 +25,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('info/', include('info.urls')),
     path('confirm/', include('confirm.urls'),name='confirm'),
-    path('myPage/', include('myPage.urls')),
+    path('log/', include('log.urls')),
     path('login/', include('login.urls')),
    
    
