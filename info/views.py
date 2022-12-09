@@ -31,6 +31,7 @@ else:
 
 def saveDataToGraph(_dict, _root):
     nameList = _dict.keys()
+    nameList2 = []
     monthList = []
     yList = np.arange(12)
 
@@ -38,6 +39,7 @@ def saveDataToGraph(_dict, _root):
         monthList.append(i + 1)
 
     for name in nameList:
+        nameList2.append(name)
         plt.figure(figsize=(6,4))
         plt.title('<'+name +'> 보고 건수',fontsize=15)
         plt.xlabel('Month')         
@@ -54,34 +56,49 @@ def saveDataToGraph(_dict, _root):
     #누적 막대그래프        
     colors=sns.color_palette('Set3',len(nameList))
     i = 0
-   
-    for name in nameList:
-        plt.bar(yList, _dict[name][1:],label=name, color=colors[i])
-        print(name)
-        print(_dict[name][1:])
-        i += 1
     
-    #lists = []
-    #for name in nameList
-    #   lists.append(_Dic[name][1:])
+    prefixSumList = [0 for i in range(12)]
+    sumList = []
+    for i in range(len(nameList2)):
+        name = nameList2[i]
+        prevName = ''
+        
 
-    # plt.bar(nameList, lists, color=colors)
+        if i > 0:
+            prevName = nameList2[i-1]
+            for j in range(12):
+                prefixSumList[j] = prefixSumList[j] + _dict[prevName][1:][j]
+
+        plt.bar(yList, _dict[name][1:], bottom=prefixSumList ,label=name, color=colors[i])
+        sumList.append(sum(_dict[name][1:]))
+    sumListSum = sum(sumList)
+    
     
     plt.xticks(yList, monthList)
     plt.title("총 질병 보고 건수",fontsize=15)
     plt.xlabel('Month')         
     plt.ylabel('Disease count')
     plt.spring()    
-    plt.ylim(0,300)    
+    plt.ylim(0,400)    
     plt.legend()
     plt.savefig(_root + 'total.png')
     plt.clf()
 
 
+    #파이 차트 그리기
+    
+    for i in range(6):
+        sumList[i] = sumList[i]*100 / sumListSum
+
+    plt.pie(sumList, labels=nameList2, autopct='%.1f%%',colors=colors)
+    plt.title("질병 비율",fontsize=15)
+    plt.savefig(_root + 'percent.png')
+    plt.clf()
+
 
 
 def clearChart(_root):
-    nameList = ['겹무늬병', '세균점무늬병', '잎곰팡이병', '잎마름역병', '황화_잎말림_바이러스', '흰무늬병', 'total']
+    nameList = ['겹무늬병', '세균점무늬병', '잎곰팡이병', '잎마름역병', '황화_잎말림_바이러스', '흰무늬병', 'total','percent']
     for name in nameList:
         filePath = _root + name + '.png'
         if os.path.exists(filePath) == True:
