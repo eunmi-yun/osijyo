@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'home',
     'info',
     'confirm',
-    'myPage',
+    'history',
     'login',
 ]
 
