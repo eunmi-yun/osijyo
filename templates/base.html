@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <title>Osijyo</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="../static/assets/css/main.css" />
+    <link rel="short icon" href="#">
+  </head>
+  <body class="homepage is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <header id="header">
+        <div class="logo container">
+          <div>
+            <h1><a href="/" id="logo">Osijyo</a></h1>
+          </div>
+        </div>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul>
+          <li class="current"><a href="/">Home</a></li>
+          <li><a href="/info">Info</a></li>
+          <li><a href="/confirm">Confirm</a></li>
+          <li><a href="/log">Log</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <section id="main">
+        <div class="container">
+          <div class="row gtr-200">
+            <div class="col-12">
+              <!-- Features -->
+              <section class="box features">
+                <article>{% block contents_home %}{% endblock %}</article>
+                <article>{% block contents_info %}{% endblock %}</article>
+                <article>{% block contents_confirm %}{% endblock %}</article>
+                <article>{% block contents_log %}{% endblock %}</article>
+                <article>{% block contents_result_CNN %}{% endblock %}</article>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/assets/js/jquery.dropotron.min.js"></script>
+    <script src="../static/assets/js/jquery.scrolly.min.js"></script>
+    <script src="../static/assets/js/browser.min.js"></script>
+    <script src="../static/assets/js/breakpoints.min.js"></script>
+    <script src="../static/assets/js/util.js"></script>
+    <script src="../static/assets/js/main.js"></script>
+  </body>
+</html>

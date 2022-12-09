@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block contents_confirm %} {% load static %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'confirm/style.css' %}"
+/>
+<body style="overflow-y: hidden">
+  <form
+    action="/confirm/imageCreate"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <div class="preview-zone hidden">
+              <div class="box box-solid">
+                <div class="box-header with-border">
+                  <div><b>Disease Test</b></div>
+                </div>
+                <div class="box-body"></div>
+              </div>
+            </div>
+            <div class="dropzone-wrapper">
+              <div class="dropzone-desc">
+                <i class="glyphicon glyphicon-download-alt"></i>
+                {% csrf_token %}
+                <p>Choose an image file or drag it here.</p>
+              </div>
+              <input type="file" name="img_upload" class="dropzone" />
+            </div>
+            {% if messages %}
+            <div class="warning">
+              {% for message in messages %} {{ message.tags }}
+              {{message.messages}} {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <button type="submit" class="btn">간편 확인</button>
+        </div>
+        <div class="col-md-12">
+          <button type="submit" class="btn">상세 확인</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+
+<!-- partial -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
