@@ -10,7 +10,8 @@ import tensorflow as tf
 from log.models import history
 from datetime import datetime
 from django.utils.dateformat import DateFormat
-
+from django.http import HttpResponseRedirect
+from log.views import log
 
 def confirm(request):
     return render(request,'confirm/confirm.html')
@@ -25,10 +26,10 @@ def save(request):
         history_list.disease_cure = request.POST['disease_cure']
         history_list.disease_name = request.POST['disease_name']
         history_list.save()
-        return redirect('post')
+        return log(request)
     else :
         history_list = history.objects.all()
-        return render(request, 'log/log.html',{'history_list',history_list}) 
+        return log(request)
 
 
 
