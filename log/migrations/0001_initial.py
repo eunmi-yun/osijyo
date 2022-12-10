@@ -10,44 +10,44 @@ class Migration(migrations.Migration):
     dependencies = [
     ]
 
-    operations = [
-        migrations.CreateModel(
-            name='disease',
-            fields=[
-                ('disease_code', models.AutoField(primary_key=True, serialize=False)),
-                ('disease_name', models.CharField(max_length=45)),
-                ('disease_cure', models.CharField(max_length=45)),
-                ('scientific_name', models.CharField(max_length=50)),
-                ('disease_group', models.CharField(max_length=50)),
-            ],
-            options={
-                'db_table': 'disease',
-                'managed': False,
-            },
-        ),
-        migrations.CreateModel(
-            name='history',
-            fields=[
-                ('history_id', models.AutoField(primary_key=True, serialize=False)),
-                ('reg_date', models.DateField()),
-                ('disease_name', models.CharField(max_length=50)),
-                ('disease_cure', models.CharField(max_length=200)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='')),
-            ],
-            options={
-                'db_table': 'history',
-                'managed': False,
-            },
-        ),
-        migrations.CreateModel(
-            name='status',
-            fields=[
-                ('status_code', models.AutoField(primary_key=True, serialize=False)),
-                ('status_name', models.CharField(max_length=45)),
-            ],
-            options={
-                'db_table': 'status',
-                'managed': False,
-            },
-        ),
-    ]
+    # operations = [
+    #     migrations.CreateModel(
+    #         name='disease',
+    #         fields=[
+    #             ('disease_code', models.AutoField(primary_key=True, serialize=False)),
+    #             ('disease_name', models.CharField(max_length=45)),
+    #             ('disease_cure', models.CharField(max_length=45)),
+    #             ('scientific_name', models.CharField(max_length=50)),
+    #             ('disease_group', models.CharField(max_length=50)),
+    #         ],
+    #         options={
+    #             'db_table': 'disease',
+    #             'managed': False,
+    #         },
+    #     ),
+    #     migrations.CreateModel(
+    #         name='history',
+    #         fields=[
+    #             ('history_id', models.AutoField(primary_key=True, serialize=False)),
+    #             ('reg_date', models.DateField()),
+    #             ('disease_name', models.CharField(max_length=50)),
+    #             ('disease_cure', models.CharField(max_length=200)),
+    #             ('image', models.ImageField(blank=True, null=True, upload_to='')),
+    #         ],
+    #         options={
+    #             'db_table': 'history',
+    #             'managed': False,
+    #         },
+    #     ),
+    #     migrations.CreateModel(
+    #         name='status',
+    #         fields=[
+    #             ('status_code', models.AutoField(primary_key=True, serialize=False)),
+    #             ('status_name', models.CharField(max_length=45)),
+    #         ],
+    #         options={
+    #             'db_table': 'status',
+    #             'managed': False,
+    #         },
+    #     ),
+    # ]

@@ -20,5 +20,6 @@ saved_model/
 media/
 
 *h5
+*pyc
 
 

@@ -5,5 +5,4 @@ app_name = 'log'
 
 urlpatterns = [
     path('', views.log),
-    path('save', views.save),
 ]
