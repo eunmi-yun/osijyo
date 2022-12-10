@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block contents_result %} {% load static %}
+<nav id="nav">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/info">Info</a></li>
+    <li class="current"><a href="/confirm">Confirm</a></li>
+    <li><a href="/log">History</a></li>
+  </ul>
+</nav>
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'confirm/result_style.css' %}"
+/>
+<head>
+  <meta charset="UTF-8" />
+  <title>Title</title>
+</head>
+<body style="overflow-x: hidden">
+  <div class="row">
+    <div class="preview-zone hidden">
+      <h2 class="result">"{{result}}"</h2>
+      <button type="submit" class="disease_cure">
+        <a href="{{url_result}}" target="”_blank”"> 질병 대처법 보러가기</a>
+      </button>   
+      <button type="submit" class="btn">
+        <a href="/confirm">다시 확인</a>
+      </button>
+      <form action="/confirm/save" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="disease_name" value= {{result}} />
+        <textarea type="hidden" name="disease_cure" style=display:none> {{result2}}</textarea>
+        <button type="submit">save</button>
+      </form>
+    </div>
+  </div>
+</body>
+{% endblock %}

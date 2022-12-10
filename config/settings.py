@@ -9,12 +9,10 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
-from pathlib import Path
 import pymysql  
 import os
+from pathlib import Path
 from django.contrib.messages import constants as messages_constants
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,7 +43,6 @@ INSTALLED_APPS = [
     'info',
     'confirm',
     'log',
-    'login',
 ]
 
 MIDDLEWARE = [
@@ -87,7 +84,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'osijyo',
         'USER': 'root',
-        'PASSWORD': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '3306',
@@ -141,10 +137,12 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MESSAGE_LEVEL = messages_constants.DEBUG
-
 
 pymysql.install_as_MySQLdb()
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
+MESSAGE_LEVEL = messages_constants.DEBUG

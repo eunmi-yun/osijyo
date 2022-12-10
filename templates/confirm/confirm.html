@@ -1,4 +1,14 @@
 {% extends 'base.html' %} {% block contents_confirm %} {% load static %}
+<!-- Nav -->
+<nav id="nav">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/info">Info</a></li>
+    <li class="current"><a href="/confirm">Confirm</a></li>
+    <li><a href="/log">History</a></li>
+  </ul>
+</nav>
+
 <link
   rel="stylesheet"
   type="text/css"
@@ -12,6 +22,14 @@
   >
     <div class="container">
       <div class="row">
+        <div class="preview-zone hidden">
+          <b>간편 확인 예시</b>
+          <br />
+          <image
+            src="/static/confirm/yolo_ex.png"
+            style="width: 240px; height: 240px; border-radius: 20%"
+          />
+        </div>
         <div class="col-md-12">
           <div class="form-group">
             <div class="preview-zone hidden">
@@ -38,13 +56,27 @@
             {% endif %}
           </div>
         </div>
+        <div class="preview-zone hidden">
+          <b>상세 확인 예시</b>
+          <br />
+          <image
+            src="/static/confirm/cnn_ex.png"
+            style="width: 240px; height: 240px; border-radius: 20%"
+          />
+        </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
-          <button type="submit" class="btn">간편 확인</button>
+        <div
+          class="col-md-12"
+          title="질병 유무 확인 : 여러 잎사귀가 보이는 사진을 등록해주세요."
+        >
+          <button type="submit" name="btn_yolo">간편 확인</button>
         </div>
-        <div class="col-md-12">
-          <button type="submit" class="btn">상세 확인</button>
+        <div
+          class="col-md-12"
+          title="질병명 및 대처법 확인 : 잎사귀 한 장의 전체 사진을 등록해주세요."
+        >
+          <button type="submit" name="btn_cnn">상세 확인</button>
         </div>
       </div>
     </div>
