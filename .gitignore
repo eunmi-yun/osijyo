@@ -18,6 +18,7 @@
 
 saved_model/
 media/
+config/settings.py
 
 *h5
 *pyc
