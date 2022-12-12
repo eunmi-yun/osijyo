@@ -70,20 +70,20 @@
           class="col-md-12"
           title="질병 유무 확인 : 여러 잎사귀가 보이는 사진을 등록해주세요."
         >
-          <button type="submit" name="btn_yolo">간편 확인</button>
+          <button type="submit" name="btn_yolo" onclick="loadingFunc()">
+            간편 확인
+          </button>
         </div>
         <div
           class="col-md-12"
           title="질병명 및 대처법 확인 : 잎사귀 한 장의 전체 사진을 등록해주세요."
         >
-          <button type="submit" name="btn_cnn">상세 확인</button>
+          <button type="submit" name="btn_cnn" onclick="loadingFunc()">
+            상세 확인
+          </button>
         </div>
       </div>
     </div>
   </form>
 </body>
-
-<!-- partial -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 {% endblock %}
