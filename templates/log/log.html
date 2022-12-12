@@ -32,14 +32,18 @@
       <tr>  
         <td ><input type="hidden" id ="history_id" name="history_id" value= {{history.history_id}} > {{forloop.counter}}</td> 
         <td>  
-              {% if history.history_id == 2 %}
+              {% if history.disease_name == '겹무늬병' %}
               <img src="{% static 'log/tomato2.jpg' %}" id="tomatoimg">
-              {% elif history.history_id == 3 %}
+              {% elif history.disease_name == '잎마름역병' %}
               <img src="{% static 'log/tomato3.jpg' %}" id="tomatoimg">
-              {% elif history.history_id == 4 %}
+              {% elif history.disease_name == '황화 잎말림 바이러스' %}
               <img src="{% static 'log/tomato4.jpg' %}" id="tomatoimg">
-              {% elif history.history_id == 5 %}
+              {% elif history.disease_name == '잎곰팡이병' %}
               <img src="{% static 'log/tomato5.jpg' %}" id="tomatoimg">
+              {% elif history.disease_name == '흰무늬병' %}
+              <img src="{% static 'log/tomato7.jpg' %}" id="tomatoimg">
+              {% elif history.disease_name == '세균점무늬병' %}
+              <img src="{% static 'log/tomato6.jpg' %}" id="tomatoimg">
               {% else %}
               <img src="{% static 'log/tomato1.jpg' %}" id="tomatoimg"> 
               {% endif %}
