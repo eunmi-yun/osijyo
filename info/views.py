@@ -28,7 +28,7 @@ else:
     print('Unknown system...')
 
 
-
+#이미지 저장
 def saveDataToGraph(_dict, _root):
     nameList = _dict.keys()
     nameList2 = []
@@ -37,7 +37,7 @@ def saveDataToGraph(_dict, _root):
 
     for i in range(12):
         monthList.append(i + 1)
-
+    #각각 질병별 그래프
     for name in nameList:
         nameList2.append(name)
         plt.figure(figsize=(6,4))
@@ -85,7 +85,7 @@ def saveDataToGraph(_dict, _root):
     plt.clf()
 
 
-    #파이 차트 그리기
+    #파이 그래프
     
     for i in range(6):
         sumList[i] = sumList[i]*100 / sumListSum
@@ -124,6 +124,6 @@ def chart_allDisease(request):
 
     saveDataToGraph(statisticsList, 'static/info/')
 
-    return render(request, 'info/info.html')
+    return render(request, 'info/info.html',{'year':selectYear})
     
 

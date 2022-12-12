@@ -16,6 +16,7 @@
   {% csrf_token %}
   <h1>년도</h1>
   <select name="year">  
+  <option value="2020">2020</option> 
   <option value="2021">2021</option>  
   <option value="2022">2022</option> 
   </select>
@@ -25,6 +26,10 @@
 
 
 <table border="1">
+  <p></p>
+  <p align="center"><font size="30px"><b> {{ year }} </b></font></p>
+
+
   <tr>
     <td><img src="{% static 'info/total.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
     <td><img src="{% static 'info/percent.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
