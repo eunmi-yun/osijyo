@@ -6,5 +6,6 @@ app_name = 'confirm'
 urlpatterns = [
     path('', views.confirm),
     path('imageCreate', views.imageCreate),
+    path('save', views.save),
     # , name='imageCreate'
 ]
