@@ -119,6 +119,8 @@ ul {
   list-style: none;
 }
 
+
+
 blockquote,
 q {
   quotes: none;
@@ -251,7 +253,7 @@ h4 {
 }
 
 a {
-  color: #fff;
+  color: rgb(0, 36, 241);
   text-decoration: none;
 }
 
