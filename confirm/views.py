@@ -11,7 +11,7 @@ from log.models import history
 from datetime import datetime
 from django.utils.dateformat import DateFormat
 from django.http import HttpResponseRedirect
-from log.views import log
+from log.views import log2
 
 def confirm(request):
     return render(request,'confirm/confirm.html')
@@ -26,10 +26,10 @@ def save(request):
         history_list.disease_cure = request.POST['disease_cure']
         history_list.disease_name = request.POST['disease_name']
         history_list.save()
-        return log(request)
+        return log2(request)
     else :
         history_list = history.objects.all()
-        return log(request)
+        return log2(request)
 
 
 
