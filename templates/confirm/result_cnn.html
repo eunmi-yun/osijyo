@@ -27,6 +27,14 @@
       <button type="submit" class="btn">
         <a href="/confirm">다시 확인</a>
       </button>
+      <form action="/confirm/save" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="disease_name" value="{{result}}" />
+        <textarea type="hidden" name="disease_cure" style="display: none">
+        {{result2}}</textarea
+        >
+        <button type="submit">save</button>
+      </form>
     </div>
   </div>
 </body>

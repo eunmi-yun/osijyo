@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block contents_log %} {% load static %}
-
+<!-- Nav -->
 <nav id="nav">
   <ul>
     <li><a href="/">Home</a></li>
@@ -8,7 +8,6 @@
     <li class="current"><a href="/log">History</a></li>
   </ul>
 </nav>
-
 <link
   rel="stylesheet"
   type="text/css"
@@ -30,27 +29,33 @@
   </thead>
 
   {% for history in history_list %}
-  <tr>  
-    <td ><input type="hidden" id ="history_id" name="history_id" value= {{history.history_id}} >{{history.history_id}}</td> 
-    <td>  
-          {% if history.history_id == 2 %}
-          <img src="{% static 'log/tomato2.jpg' %}" id="tomatoimg">
-          {% elif history.history_id == 3 %}
-          <img src="{% static 'log/tomato3.jpg' %}" id="tomatoimg">
-          {% elif history.history_id == 4 %}
-          <img src="{% static 'log/tomato4.jpg' %}" id="tomatoimg">
-          {% elif history.history_id == 5 %}
-          <img src="{% static 'log/tomato5.jpg' %}" id="tomatoimg">
-          {% else %}
-          <img src="{% static 'log/tomato1.jpg' %}" id="tomatoimg"> 
-          {% endif %}
-    </td>
-    <td>{{history.reg_date|date:'Y-m-d'}}</td>
-    <td>{{history.disease_name}}</td>
-    <td id ="cure">{{history.disease_cure}}</td>    
-  </tr>
+      <tr>  
+        <td ><input type="hidden" id ="history_id" name="history_id" value= {{history.history_id}} > {{forloop.counter}}</td> 
+        <td>  
+              {% if history.disease_name == '겹무늬병' %}
+              <img src="{% static 'log/tomato2.jpg' %}" id="tomatoimg">
+              {% elif history.disease_name == '잎마름역병' %}
+              <img src="{% static 'log/tomato3.jpg' %}" id="tomatoimg">
+              {% elif history.disease_name == '황화 잎말림 바이러스' %}
+              <img src="{% static 'log/tomato4.jpg' %}" id="tomatoimg">
+              {% elif history.disease_name == '잎곰팡이병' %}
+              <img src="{% static 'log/tomato5.jpg' %}" id="tomatoimg">
+              {% elif history.disease_name == '흰무늬병' %}
+              <img src="{% static 'log/tomato7.jpg' %}" id="tomatoimg">
+              {% elif history.disease_name == '세균점무늬병' %}
+              <img src="{% static 'log/tomato6.jpg' %}" id="tomatoimg">
+              {% else %}
+              <img src="{% static 'log/tomato1.jpg' %}" id="tomatoimg"> 
+              {% endif %}
+        </td>
+        <td>{{history.reg_date|date:'Y-m-d'}}</td>
+        <td>{{history.disease_name}}</td>
+        <td id ="cure">{{history.disease_cure}}</td>    
+      </tr>
 {% endfor %} 
 </table>
+
+
 
   <!-- Pagination -->
      <div style="text-align:center">
@@ -67,7 +72,7 @@
               {% for page in history_list.paginator.page_range %}
                   {% if page >= history_list.number|add:-2 and page <= history_list.number|add:2 %}
                   <span class="{% if page == history_list.number %}current{% endif %}">
-                      <a href="?page={{ page }}">{{ page}}</a>
+                      <a class="abutton" href="?page={{ page }}">{{ page}}</a>
                   </span>
                   {% elif page >= history_list.number|add:-3 and page <= history_list.number|add:3 %}
                       ..
