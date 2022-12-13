@@ -19,7 +19,7 @@
 saved_model/
 media/
 config/settings.py
-__pycache__/
+confirm/__pycache__/
 confirm/
 static/confirm/
 templates/confirm/
