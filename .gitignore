@@ -19,8 +19,12 @@
 saved_model/
 media/
 config/settings.py
+__pycache__/
+confirm/
+static/confirm/
+templates/confirm/
 
-*h5
-*pyc
+*.h5
+*.pyc
 
 
