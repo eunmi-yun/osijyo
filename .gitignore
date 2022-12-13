@@ -24,7 +24,11 @@ static/confirm/
 templates/confirm/
 node_modules/
 
-*.h5
 *.pyc
-
+*.JPG
+*.h5
+*.pyc~Stashed changes
+*.cfg
+*.weights
+*.names
 
