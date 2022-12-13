@@ -9,43 +9,90 @@
   </ul>
 </nav>
 
-<link rel="stylesheet" type="text/css" href="{% static 'info/info.css' %}" />
+<link rel="stylesheet" href="{% static 'info/info.css' %}" />
 
-<table>
-  <tr>
-    <td rowspan="4">
-      <h1>그래프 자리</h1>
-    </td>
+<form action="loadChart" method="post">
+  {% csrf_token %}
+  <h1>년도</h1>
+  <select name="year">
+    <option value="2020">2020</option>
+    <option value="2021">2021</option>
+    <option value="2022">2022</option>
+  </select>
+  <input type="submit" value="제출" />
+</form>
 
-    <td style="padding: 50px">
-      <!-- partial:index.partial.html -->
-      <div class="widget">
-        <div class="color"></div>
-        <div class="brightness"></div>
-        <div class="weather"></div>
-        <div class="city">Orem, UT, USA</div>
-        <div class="forecast"></div>
-      </div>
-      <div class="about">
-        <h1>Weather Widget</h1>
-      </div>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-      <!-- partial -->
-      <script src="{% static 'info/weather.js' %}"></script>
-    </td>
-  </tr>
+<table border="1">
+  <p></p>
+  <p align="center">
+    <font size="30px"><b> {{ year }} </b></font>
+  </p>
 
   <tr>
     <td>
       <img
-        src="{% static 'info/farmer3.jpg' %}"
-        width="200"
-        height="350"
-        alt="농부 캐릭터"
-        title="농부"
+        src="{% static 'info/total.png' %}"
+        onerror="this.style.display='none';"
+      />
+    </td>
+    <td>
+      <img
+        src="{% static 'info/percent.png' %}"
+        onerror="this.style.display='none';"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        src="{% static 'info/겹무늬병.png' %}"
+        onerror="this.style.display='none';"
+      />
+    </td>
+    <td>
+      <img
+        src="{% static 'info/세균점무늬병.png' %}"
+        onerror="this.style.display='none';"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        src="{% static 'info/잎마름역병.png' %}"
+        onerror="this.style.display='none';"
+      />
+    </td>
+    <td>
+      <img
+        src="{% static 'info/황화_잎말림_바이러스.png' %}"
+        onerror="this.style.display='none';"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        src="{% static 'info/잎곰팡이병.png' %}"
+        onerror="this.style.display='none';"
+      />
+    </td>
+    <td>
+      <img
+        src="{% static 'info/흰무늬병.png' %}"
+        onerror="this.style.display='none';"
       />
     </td>
   </tr>
 </table>
+
+<!-- <div class="lb-widget">
+  <div id="lb-1" class="lb-weather">
+    <iframe src="https://forecast.io/embed/#lat=37.5266&lon=127.0403&name=Seoul, 서울&color=&font=&units=si"></iframe>
+  </div>
+</div> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.1/jquery.mb.YTPlayer.min.js"></script>
+<script src="{% static 'info/weather.js' %}"></script>
 {% endblock %}

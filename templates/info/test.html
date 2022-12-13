@@ -1,0 +1,21 @@
+<body>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <td><B>ID</B></td>
+                <td><B>Name</B></td>
+                <td><B>Age</B></td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for data in dataList %}
+            <tr>
+                <td>{{data.reg_date}}</td>
+                <td>{{data.disease_name}}</td>
+            </tr>
+            {% endfor %}
+            <tbody>
+        </table>
+        <a href="/"> Back home</a>
+    </body>
