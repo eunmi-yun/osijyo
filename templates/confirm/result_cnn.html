@@ -21,6 +21,10 @@
   <form action="/confirm/save" method="post" enctype="multipart/form-data">
     <div class="row">
       <div class="preview-zone hidden">
+        <!-- <img
+          src="${/photo_list.photo}"
+          alt="사진을 불러오지 못했습니다."
+        /> -->
         <h2 class="result">"{{result}}"</h2>
         {% csrf_token %}
         <input type="hidden" name="disease_name" value="{{result}}" />

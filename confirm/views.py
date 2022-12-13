@@ -10,6 +10,7 @@ import tensorflow as tf
 from log.views import log
 from log.models import history
 from datetime import datetime
+from confirm.models import photo
 
 
 def confirm(request):
@@ -129,6 +130,12 @@ def imageCreate(request):
             return render(request, 'confirm/result_yolo.html', {'result':result})
         
         else:
+            #DB에 이미지 경로 저장
+            photo_list = photo()
+            photo_list.reg_date = datetime.now()
+            photo_list.photo = request.FILES['img_upload']
+            photo_list.save()
+
             modelPath = os.path.join(settings.BASE_DIR, 'saved_model\\tomato_DenseNet201.h5')
             tomato_model = tf.keras.models.load_model(modelPath) 
 
@@ -155,9 +162,9 @@ def imageCreate(request):
             url_result=url_lables[idx]
             result2_lables = ['하우스 내부를 청결하게 관리하고 다습하지 않도록 통풍과 환기를 잘 시킨다.','온실재배 시 내부가 다습하지 않도록 환기를 한다','정상','항상 포장을 청결히 하고 병든 잎이나 줄기는 조기에 제거하여 불에 태우거나 땅속 깊이 묻는다.','90%이상의 상대습도가 유지되지 않도록 해야 하고 통풍이 잘되게 하고 밀식하지 않는다.','종자를 선별하고, 소독하여 파종 해야 하며 재배 시 균형시비를 하고 병든 잎은 조기에 제거한다.','담배가루이 약제를 처리하여 박멸']
             result2= result2_lables[idx]
-            return render(request, 'confirm/result_cnn.html', {'result':result,'url_result':url_result,'result2':result2})
+
+            return render(request, 'confirm/result_cnn.html', {'result':result,'url_result':url_result,'result2':result2, 'photo_list.photo':photo_list.photo})
 
     else:
         messages.warning(request, messages.warning, '이미지를 선택해 주세요!')
         return render(request,'confirm/confirm.html')
-
