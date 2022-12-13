@@ -10,7 +10,6 @@ import tensorflow as tf
 from log.views import logView
 from log.models import history
 from datetime import datetime
-from confirm.models import photo
 
 
 def confirm(request):
