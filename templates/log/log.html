@@ -72,7 +72,7 @@
               {% for page in history_list.paginator.page_range %}
                   {% if page >= history_list.number|add:-2 and page <= history_list.number|add:2 %}
                   <span class="{% if page == history_list.number %}current{% endif %}">
-                      <a href="?page={{ page }}">{{ page}}</a>
+                      <a class="abutton" href="?page={{ page }}">{{ page}}</a>
                   </span>
                   {% elif page >= history_list.number|add:-3 and page <= history_list.number|add:3 %}
                       ..

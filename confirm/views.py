@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 from PIL import Image
 import os
@@ -7,17 +7,16 @@ from django.contrib import messages
 import cv2
 import numpy as np
 import tensorflow as tf
+from log.views import log
 from log.models import history
 from datetime import datetime
-from django.utils.dateformat import DateFormat
-from django.http import HttpResponseRedirect
-from log.views import log
+
 
 def confirm(request):
     return render(request,'confirm/confirm.html')
 
 def upload_get(request):
-    return render(request, 'confirm/upload.html')   
+    return render(request, 'confirm/upload.html')    
 
 def save(request):
     if request.method == 'POST':
@@ -30,9 +29,6 @@ def save(request):
     else :
         history_list = history.objects.all()
         return log(request)
-
-
-
 
 def imageCreate(request):
     if  'img_upload' in request.FILES:
@@ -116,10 +112,10 @@ def imageCreate(request):
                     width = box[2]
                     height = box[3]
                     
-                    caption = f"{labels_to_names_seq[class_ids[i]]}: {confidences[i]:.2})"
+                    caption = f"{labels_to_names_seq[class_ids[i]]}: {confidences[i]:.2}"
                     label = colors[class_ids[i]]
                     cv2.rectangle(draw_img, (int(left), int(top), int(width), int(height)), color=label, thickness=2)
-                    cv2.putText(draw_img, caption, (int(left), int(top-5)), cv2.FONT_HERSHEY_SIMPLEX, 0.7, label, 2, cv2.LINE_AA)
+                    cv2.putText(draw_img, caption, (int(left), int(top-5)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, label, 2, cv2.LINE_AA)
 
             # cv2.imwrite('media/yolo/'+myfile.name, draw_img)
             cv2.imwrite('media/yolo/result_img.jpg', draw_img)
@@ -164,6 +160,4 @@ def imageCreate(request):
     else:
         messages.warning(request, messages.warning, '이미지를 선택해 주세요!')
         return render(request,'confirm/confirm.html')
-
-
 

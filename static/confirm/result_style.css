@@ -40,3 +40,9 @@ a:active {
   padding: 0 0 0 50px;
   text-align: center;
 }
+
+.save {
+  position: relative;
+  top: 100px;
+  left: -10px;
+}
