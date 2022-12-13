@@ -29,27 +29,22 @@
   </thead>
 
   {% for history in history_list %}
-  <tr>  
-    <td ><input type="hidden" id ="history_id" name="history_id" value= {{history.history_id}} >{{forloop.counter}}</td> 
-    <td>  
-          {% if history.history_id == 2 %}
-          <img src="{% static 'log/tomato2.jpg' %}" id="tomatoimg">
-          {% elif history.history_id == 3 %}
-          <img src="{% static 'log/tomato3.jpg' %}" id="tomatoimg">
-          {% elif history.history_id == 4 %}
-          <img src="{% static 'log/tomato4.jpg' %}" id="tomatoimg">
-          {% elif history.history_id == 5 %}
-          <img src="{% static 'log/tomato5.jpg' %}" id="tomatoimg">
-          {% else %}
-          <img src="{% static 'log/tomato1.jpg' %}" id="tomatoimg"> 
+      <tr>  
+        <td ><input type="hidden" id ="history_id" name="history_id" value= {{history.history_id}} > {{forloop.counter}}</td> 
+        <td>
+          <!-- image -->
+          {% if history.photo %}
+          <img src="{{ history.image_url|default_if_none:'#' }}" style="width: 180px; height: 150px;" alt=""> <br>
           {% endif %}
-    </td>
-    <td>{{history.reg_date|date:'Y-m-d'}}</td>
-    <td>{{history.disease_name}}</td>
-    <td id ="cure">{{history.disease_cure}}</td>    
-  </tr>
+        </td>
+        <td>{{history.reg_date|date:'Y-m-d'}}</td>
+        <td>{{history.disease_name}}</td>
+        <td id ="cure">{{history.disease_cure}}</td>    
+      </tr>
 {% endfor %} 
 </table>
+
+
 
   <!-- Pagination -->
      <div style="text-align:center">
@@ -66,7 +61,7 @@
               {% for page in history_list.paginator.page_range %}
                   {% if page >= history_list.number|add:-2 and page <= history_list.number|add:2 %}
                   <span class="{% if page == history_list.number %}current{% endif %}">
-                      <a href="?page={{ page }}">{{ page}}</a>
+                      <a class="abutton" href="?page={{ page }}">{{ page}}</a>
                   </span>
                   {% elif page >= history_list.number|add:-3 and page <= history_list.number|add:3 %}
                       ..

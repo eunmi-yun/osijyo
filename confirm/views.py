@@ -7,9 +7,10 @@ from django.contrib import messages
 import cv2
 import numpy as np
 import tensorflow as tf
-from log.views import log
+from log.views import logView
 from log.models import history
 from datetime import datetime
+from confirm.models import photo
 
 
 def confirm(request):
@@ -18,18 +19,18 @@ def confirm(request):
 def upload_get(request):
     return render(request, 'confirm/upload.html')    
 
-
 def save(request):
     if request.method == 'POST':
-        history_list = history()
-        history_list.reg_date = datetime.now()
-        history_list.disease_cure = request.POST['disease_cure']
-        history_list.disease_name = request.POST['disease_name']
-        history_list.save()
-        return log(request)
+        # history_list = log()
+        # history_list.reg_date = datetime.now()
+        # history_list.disease_cure = request.POST['disease_cure']
+        # history_list.disease_name = request.POST['disease_name']
+        # history_list.photo = savedFile
+        # history_list.save()
+        return logView(request)
     else :
-        history_list = history.objects.all()
-        return log(request)
+        history_list = log.objects.all()
+        return logView(request)
 
 
 def imageCreate(request):
@@ -114,10 +115,10 @@ def imageCreate(request):
                     width = box[2]
                     height = box[3]
                     
-                    caption = f"{labels_to_names_seq[class_ids[i]]}: {confidences[i]:.2})"
+                    caption = f"{labels_to_names_seq[class_ids[i]]}: {confidences[i]:.2}"
                     label = colors[class_ids[i]]
                     cv2.rectangle(draw_img, (int(left), int(top), int(width), int(height)), color=label, thickness=2)
-                    cv2.putText(draw_img, caption, (int(left), int(top-5)), cv2.FONT_HERSHEY_SIMPLEX, 0.7, label, 2, cv2.LINE_AA)
+                    cv2.putText(draw_img, caption, (int(left), int(top-5)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, label, 2, cv2.LINE_AA)
 
             # cv2.imwrite('media/yolo/'+myfile.name, draw_img)
             cv2.imwrite('media/yolo/result_img.jpg', draw_img)
@@ -127,10 +128,14 @@ def imageCreate(request):
             else:
                 result = '질병에 걸렸습니다.'   
 
-
+            os.remove('media/'+ myfile.name)
             return render(request, 'confirm/result_yolo.html', {'result':result})
         
         else:
+            #DB에 이미지 경로 저장
+            savedHistory = history()
+            savedHistory.reg_date = datetime.now()
+            savedHistory.photo = myfile
             modelPath = os.path.join(settings.BASE_DIR, 'saved_model\\tomato_DenseNet201.h5')
             tomato_model = tf.keras.models.load_model(modelPath) 
 
@@ -159,7 +164,17 @@ def imageCreate(request):
             result2_lables = ['하우스 내부를 청결하게 관리하고 다습하지 않도록 통풍과 환기를 잘 시킨다.','온실재배 시 내부가 다습하지 않도록 환기를 한다','정상','항상 포장을 청결히 하고 병든 잎이나 줄기는 조기에 제거하여 불에 태우거나 땅속 깊이 묻는다.','90%이상의 상대습도가 유지되지 않도록 해야 하고 통풍이 잘되게 하고 밀식하지 않는다.','종자를 선별하고, 소독하여 파종 해야 하며 재배 시 균형시비를 하고 병든 잎은 조기에 제거한다.','담배가루이 약제를 처리하여 박멸']
             result2= result2_lables[idx]
 
-            return render(request, 'confirm/result_cnn.html', {'result':result,'url_result':url_result,'result2':result2})
+            result3_lables=['병 발생 초기에 잎에 담갈색∼암갈색을 띤 작은 반점이 수침상으로 형성된다.','잎, 줄기, 과실에 발생한다. 처음에 타원형의 갈색 반점으로 나타나고 진전되면 암갈색의 겹무늬 반점으로 확대된다.','','잎, 과실, 줄기 등에서 발생한다.  병든 잎은 연한 녹색이나 갈색으로 썩고, 과실의 병든 부위는 흑갈색으로 썩는다. 비교적 단단하며 과실전체가 심하게 오그라들기도 한다','잎에 발생한다. 처음에는 잎의 표면에 흰색 또는 담회색의 반점으로 나타나고 진전되면 황갈색 병반으로 확대된다','잎, 잎자루, 줄기, 가지, 과경에 발생한다.감염 부위에는 갈색 내지 암갈색의 작은 반점이 형성되고, 진전되면 병반의 내부는 회색으로 변한다.','잎이 누렇게 오그라드는 잎말림 증상이 나타나고, 줄기는 위축돼 정상적인 생육이 되지 않는다. 또 꽃이 잘 피지 않고, 열매는 착색불량 증상을 보인다.']
+            result3= result3_lables[idx]
+            
+            history_list = history()
+            history_list.reg_date = datetime.now()
+            history_list.disease_cure = result2
+            history_list.disease_name = result
+            history_list.photo = myfile
+            history_list.save()
+            os.remove('media/'+ myfile.name)
+            return render(request, 'confirm/result_cnn.html', {'result':result,'url_result':url_result,'result2':result2, 'historyResult':history_list,'result3':result3})
 
     else:
         messages.warning(request, messages.warning, '이미지를 선택해 주세요!')
