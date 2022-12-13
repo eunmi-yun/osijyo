@@ -97,10 +97,10 @@ def imageCreate(request):
                     width = box[2]
                     height = box[3]
                     
-                    caption = f"{labels_to_names_seq[class_ids[i]]}: {confidences[i]:.2})"
+                    caption = f"{labels_to_names_seq[class_ids[i]]}: {confidences[i]:.2}"
                     label = colors[class_ids[i]]
                     cv2.rectangle(draw_img, (int(left), int(top), int(width), int(height)), color=label, thickness=2)
-                    cv2.putText(draw_img, caption, (int(left), int(top-5)), cv2.FONT_HERSHEY_SIMPLEX, 0.7, label, 2, cv2.LINE_AA)
+                    cv2.putText(draw_img, caption, (int(left), int(top-5)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, label, 2, cv2.LINE_AA)
 
             # cv2.imwrite('media/yolo/'+myfile.name, draw_img)
             cv2.imwrite('media/yolo/result_img.jpg', draw_img)
