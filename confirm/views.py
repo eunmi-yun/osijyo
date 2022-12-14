@@ -163,8 +163,7 @@ def imageCreate(request):
             result2_lables = ['하우스 내부를 청결하게 관리하고 다습하지 않도록 통풍과 환기를 잘 시킨다.','온실재배 시 내부가 다습하지 않도록 환기를 한다','정상','항상 포장을 청결히 하고 병든 잎이나 줄기는 조기에 제거하여 불에 태우거나 땅속 깊이 묻는다.','90%이상의 상대습도가 유지되지 않도록 해야 하고 통풍이 잘되게 하고 밀식하지 않는다.','종자를 선별하고, 소독하여 파종 해야 하며 재배 시 균형시비를 하고 병든 잎은 조기에 제거한다.','담배가루이 약제를 처리하여 박멸']
             result2= result2_lables[idx]
 
-            result3_lables=['병 발생 초기에 잎에 담갈색∼암갈색을 띤 작은 반점이 수침상으로 형성된다.','잎, 줄기, 과실에 발생한다. 처음에 타원형의 갈색 반점으로 나타나고 진전되면 암갈색의 겹무늬 반점으로 확대된다.','','잎, 과실, 줄기 등에서 발생한다.  병든 잎은 연한 녹색이나 갈색으로 썩고, 과실의 병든 부위는 흑갈색으로 썩는다. 비교적 단단하며 과실전체가 심하게 오그라들기도 한다','잎에 발생한다. 처음에는 잎의 표면에 흰색 또는 담회색의 반점으로 나타나고 진전되면 황갈색 병반으로 확대된다','잎, 잎자루, 줄기, 가지, 과경에 발생한다.감염 부위에는 갈색 내지 암갈색의 작은 반점이 형성되고, 진전되면 병반의 내부는 회색으로 변한다.','잎이 누렇게 오그라드는 잎말림 증상이 나타나고, 줄기는 위축돼 정상적인 생육이 되지 않는다. 또 꽃이 잘 피지 않고, 열매는 착색불량 증상을 보인다.']
-            result3= result3_lables[idx]
+            
             
             history_list = history()
             history_list.reg_date = datetime.now()
@@ -173,7 +172,7 @@ def imageCreate(request):
             history_list.photo = myfile
             history_list.save()
             os.remove('media/'+ myfile.name)
-            return render(request, 'confirm/result_cnn.html', {'result':result,'url_result':url_result,'result2':result2, 'historyResult':history_list,'result3':result3})
+            return render(request, 'confirm/result_cnn.html', {'result':result,'url_result':url_result,'result2':result2, 'historyResult':history_list})
 
     else:
         messages.warning(request, messages.warning, '이미지를 선택해 주세요!')

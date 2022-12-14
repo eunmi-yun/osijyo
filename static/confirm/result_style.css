@@ -8,7 +8,7 @@ a:active {
   text-decoration: bold;
 }
 .result {
-  font-size: 5.75em;
+  font-size: 5.00em;
   font-weight: bolder;
   /* position: relative; */
   top: -1;
@@ -39,4 +39,10 @@ a:active {
 .row > * {
   padding: 0 0 0 50px;
   text-align: center;
+}
+
+.save {
+  position: relative;
+  top: 100px;
+  left: -10px;
 }

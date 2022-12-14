@@ -8,35 +8,47 @@
   </ul>
 </nav>
 
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'confirm/result_style.css' %}"
-/>
+<link rel="stylesheet" type="text/css" href="{% static 'confirm/result_style.css' %}"/>
+
+
 <head>
   <meta charset="UTF-8" />
   <title>Title</title>
 </head>
 <body style="overflow-x: hidden">
-  <div class="row">
-    <div class="preview-zone hidden">
-      <h2 class="result">"{{result}}"</h2>
-      <button type="submit" class="disease_cure">
-        <a href="{{url_result}}" target="”_blank”"> 질병 대처법 보러가기</a>
-      </button>
-      <button type="submit" class="btn">
-        <a href="/confirm">다시 확인</a>
-      </button>
-
-      <form action="/confirm/save" method="post" enctype="multipart/form-data">
+  <!-- <table>
+    <tr>
+      <td><img src="{{ historyResult.image_url|default_if_none:'#' }}" alt=""></td>
+      <td>
+        <ul>
+          <li>이름 : {{result}}</li>
+          <li>증상 : {{result3}}</li>
+          <li>대처법 : {{result2}}</li>
+        </ul>
+      </td>
+    </tr>
+  </table> -->
+  <form action="/confirm/save" method="post" enctype="multipart/form-data">
+    <div class="row">
+      <div class="preview-zone hidden">
+        <img src="{{ historyResult.image_url|default_if_none:'#' }}"  alt="">
+        <h2 class="result">"{{result}}"</h2>
         {% csrf_token %}
-        <input type="hidden" name="disease_name" value= {{result}} />
-        <textarea type="hidden" name="disease_cure" style=display:none> {{result2}}</textarea>
-        <button type="submit">save</button>
-      </form>
-
-
+        <input type="hidden" name="disease_name" value="{{result}}" />
+        <textarea  name="disease_cure" style="display:none" >{{result2}}</textarea>
+        <button type="submit" class="save">save</button>
+        <button type="submit" class="disease_cure">
+          <a href="{{url_result}}" target="”_blank”"> 질병 대처법 보러가기</a>
+        </button>
+        <button type="submit" class="btn">
+          <a href="/confirm">다시 확인</a>
+        </button>
+        
+      </div>
     </div>
-  </div>
+  </form>
+
+  
+  
 </body>
 {% endblock %}
