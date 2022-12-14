@@ -18,20 +18,6 @@ def confirm(request):
 def upload_get(request):
     return render(request, 'confirm/upload.html')    
 
-def save(request):
-    if request.method == 'POST':
-        # history_list = log()
-        # history_list.reg_date = datetime.now()
-        # history_list.disease_cure = request.POST['disease_cure']
-        # history_list.disease_name = request.POST['disease_name']
-        # history_list.photo = savedFile
-        # history_list.save()
-        return logView(request)
-    else :
-        history_list = log.objects.all()
-        return logView(request)
-
-
 def imageCreate(request):
     if  'img_upload' in request.FILES:
         myfile = request.FILES['img_upload']
@@ -135,7 +121,7 @@ def imageCreate(request):
             savedHistory = history()
             savedHistory.reg_date = datetime.now()
             savedHistory.photo = myfile
-            modelPath = os.path.join(settings.BASE_DIR, 'saved_model\\tomato_DenseNet201.h5')
+            modelPath = os.path.join(settings.BASE_DIR, 'saved_model\\model_DN121_2.h5')
             tomato_model = tf.keras.models.load_model(modelPath) 
 
             image = Image.open('media/'+myfile.name)
