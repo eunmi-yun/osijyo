@@ -78,7 +78,7 @@ def imageCreate(request):
                         boxes.append([left, top, bw, bh]) # 바운딩 박스 정보 담기
 
                         
-            labels_to_names_seq = {0:'disease sopt', 1:'disease area'}
+            labels_to_names_seq = {0:'disease spot', 1:'disease area'}
 
 
             nms_threshold = 0.4 # nonmaxsuppression threshold

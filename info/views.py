@@ -98,7 +98,7 @@ def saveDataToGraph(_dict, _root):
 
 
 def clearChart(_root):
-    nameList = ['겹무늬병', '세균점무늬병', '잎곰팡이병', '잎마름역병', '황화_잎말림_바이러스', '흰무늬병', 'total','percent']
+    nameList = ['_겹무늬병', '_세균점무늬병', '_잎곰팡이병', '_잎마름역병', '_황화_잎말림_바이러스', '_흰무늬병', 'total','percent']
     for name in nameList:
         filePath = _root + name + '.png'
         if os.path.exists(filePath) == True:
