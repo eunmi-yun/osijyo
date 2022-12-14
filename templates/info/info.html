@@ -11,45 +11,40 @@
 
 <link rel="stylesheet" href="{% static 'info/info.css' %}" />
 
-
 <form action="loadChart" method="post">
   {% csrf_token %}
   <h1>년도</h1>
-  <select name="year">  
-  <option value="2020">2020</option> 
-  <option value="2021">2021</option>  
-  <option value="2022">2022</option> 
+  <select name="year">
+    <option value="2020">2020</option>
+    <option value="2021">2021</option>
+    <option value="2022">2022</option>
   </select>
-  <input type="submit" value="제출">
-
+  <input type="submit" class="sub" onclick="loadingFunc()" value="제출" />
 </form>
-
 
 <table border="1">
   <p></p>
-  <p align="center"><font size="30px"><b> {{ year }} </b></font></p>
+  <p align="center">
+    <font size="30px"><b> {{ year }} </b></font>
+  </p>
 
-
   <tr>
-    <td><img src="{% static 'info/total.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
-    <td><img src="{% static 'info/percent.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
+    <td><img src="{% static 'info/total.png' %}" onerror="this.style.display='none';"/></td>
+    <td><img src="{% static 'info/percent.png' %}" onerror="this.style.display='none';"/></td>
   </tr>
   <tr>
-    <td><img src="{% static 'info/겹무늬병.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
-    <td><img src="{% static 'info/세균점무늬병.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
+    <td><img src="{% static 'info/겹무늬병.png' %}" onerror="this.style.display='none';"/></td>
+    <td><img src="{% static 'info/세균점무늬병.png' %}" onerror="this.style.display='none';"/></td>
   </tr>
   <tr>
-    <td><img src="{% static 'info/잎마름역병.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
-    <td><img src="{% static 'info/황화_잎말림_바이러스.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
+    <td><img src="{% static 'info/잎마름역병.png' %}" onerror="this.style.display='none';"/></td>
+    <td><img src="{% static 'info/황화_잎말림_바이러스.png' %}" onerror="this.style.display='none';"/></td>
   </tr>
   <tr>
-    <td><img src="{% static 'info/잎곰팡이병.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
-    <td><img src="{% static 'info/흰무늬병.png' %}" onerror=this.src="{% static 'info/white.png' %}" /></td>
+    <td><img src="{% static 'info/잎곰팡이병.png' %}" onerror="this.style.display='none';"/></td>
+    <td><img src="{% static 'info/흰무늬병.png' %}" onerror="this.style.display='none';"/></td>
   </tr>
-
 </table>
-
-
 
 <!-- <div class="lb-widget">
   <div id="lb-1" class="lb-weather">
@@ -57,7 +52,7 @@
   </div>
 </div> -->
 
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.1/jquery.mb.YTPlayer.min.js'></script><script  src="{% static 'info/weather.js' %}"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.1/jquery.mb.YTPlayer.min.js"></script>
+<!-- <script src="{% static 'info/weather.js' %}"></script> -->
 {% endblock %}
