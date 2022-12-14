@@ -110,7 +110,7 @@ def chart_allDisease(request):
     selectYear=request.POST.get('year')
     cursor = connection.cursor() 
    
-    sql = 'Select YEAR(reg_date), MONTH(reg_date), disease_name from history where YEAR(reg_date)='+selectYear
+    sql = 'Select YEAR(reg_date), MONTH(reg_date), disease_name from log_history where YEAR(reg_date)='+selectYear
     cursor.execute(sql)
     dataList=cursor.fetchall()
 

@@ -22,20 +22,12 @@
     <div class="preview-zone hidden">
       <h2>질병 확인 결과</h2>
       <img
-        src="../media/{{photo_test}}"
+        src="../media/{{historyResult}}"
         alt="사진을 불러오는데 실패했습니다."
         width="356"
         height="356"
       />
       <h2 class="result">"{{result}}"</h2>
-      <form action="/confirm/save" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <input type="hidden" name="disease_name" value="{{result}}" />
-        <textarea type="hidden" name="disease_cure" style="display: none">
-        {{result2}}</textarea
-        >
-        <button type="submit" class="save">save</button>
-      </form>
       <button
         type="submit"
         class="disease_cure"
