@@ -135,7 +135,7 @@ def imageCreate(request):
             savedHistory = history()
             savedHistory.reg_date = datetime.now()
             savedHistory.photo = myfile
-            modelPath = os.path.join(settings.BASE_DIR, 'saved_model\\tomato_DenseNet201.h5')
+            modelPath = os.path.join(settings.BASE_DIR, 'saved_model\\model_c.h5')
             tomato_model = tf.keras.models.load_model(modelPath) 
 
             image = Image.open('media/'+myfile.name)
@@ -144,7 +144,8 @@ def imageCreate(request):
 
             # image_arr = np.array(image)
             predictions = tomato_model.predict(image_arr.reshape(1,224,224,3))
-            print(predictions)
+
+            # print(predictions)
             # 예측값이 가장 높은 질병의 인덱스를 찾아옴
             idx = predictions[0].argmax()
 
