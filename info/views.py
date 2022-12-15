@@ -48,7 +48,7 @@ def saveDataToGraph(_dict, _root):
         plt.xticks(yList, monthList)
         name = name.replace(' ', '_')
         filePath = _root + name + '.png'
-        plt.ylim(0,130)
+        plt.ylim(0,150)
         plt.savefig(filePath)
         plt.clf()
 
