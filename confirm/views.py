@@ -50,9 +50,13 @@ def imageCreate(request):
             # 1부터 시작해야 하는데, 인덱스 번호는 0부터 시작하기 때문에 1씩 빼준다.
 
             img = cv2.imread('media/'+myfile.name)
-
+            
+            if type(img) == type(None):
+                messages.info(request, messages.info,'파일명을 영어로 바꿔주세요.')
+                return render (request, 'confirm/confirm.html')
+            else:
             # 해당 모델은 608 * 608 이미지를 받기 때문에, img 크기를 지정해준다.
-            cv_net_yolo.setInput(cv2.dnn.blobFromImage(img, scalefactor=1/255.0, size=(608, 608), swapRB=True, crop=False))
+                cv_net_yolo.setInput(cv2.dnn.blobFromImage(img, scalefactor=1/255.0, size=(608, 608), swapRB=True, crop=False))
 
             cv_out = cv_net_yolo.forward(outlayer_names)
             # layer 이름을 넣어주면, 해당하는 output을 return한다.
